@@ -24,7 +24,7 @@ const Header = () => {
       {/* logo */}
       <div className='w-28 h-8  justify-self-end'>
         <Link href={'/'}>
-          <Image alt='' className='w-full h-full object-cover' src='/logo/me.png' width={1000} height={1000} />
+          <Image alt='logo' className='w-full h-full object-cover' src='/logo/me.png' width={1000} height={1000} />
         </Link>
       </div>
     </header>
