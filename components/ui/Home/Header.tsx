@@ -1,18 +1,15 @@
 import React from 'react'
-import { RiChatAiLine } from "react-icons/ri";
 import ActiveLink from './ActiveLink';
 import Image from 'next/image';
 import Link from 'next/link';
+import ChatHeader from './ChatHeader';
 
 const Header = () => {
+  
   return (
-    <header className='grid  grid-cols-3  mt-4 items-center' >
+    <header className=' hidden lg:grid  grid-cols-3  mt-4 items-center' >
       {/* chat */}
-      <div className='w-10 h-10 flex items-center justify-center'>
-        <p className='p-1.5 bg-black  text-white rounded-full text-24 '>
-          <RiChatAiLine />
-        </p>
-      </div>
+      <ChatHeader />
       {/* menu */}
       <div className='justify-self-center'>
         <ul className='flex items-center gap-12 '>
@@ -22,7 +19,7 @@ const Header = () => {
         </ul>
       </div>
       {/* logo */}
-      <div className='w-28 h-8  justify-self-end'>
+      <div className='w-28 h-8 justify-self-end'>
         <Link href={'/'}>
           <Image alt='logo' className='w-full h-full object-cover' src='/logo/me.png' width={1000} height={1000} />
         </Link>

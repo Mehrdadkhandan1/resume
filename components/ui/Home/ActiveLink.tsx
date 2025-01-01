@@ -23,3 +23,16 @@ const ActiveLink = ({ href, label }: Props) => {
 }
 
 export default ActiveLink
+
+export const ActiveLinkMobile = ({ href, label }: Props) => {
+    const pathName = usePathname()
+
+    const isActive = (path: string) => pathName === path
+    return (
+        <li>
+            <Link href={href} className={`${isActive(href) ? "text-purple-500  font-bold" : "text-gray-400"} hover:opacity-80 text-18 transition-all `} >
+                {label}
+            </Link>
+        </li>
+    )
+}

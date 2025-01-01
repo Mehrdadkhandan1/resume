@@ -6,7 +6,7 @@ export default {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(button|ripple|spinner).js"
+    "./node_modules/@nextui-org/theme/dist/components/(button|modal|navbar|ripple|spinner).js"
   ],
   theme: {
     fontSize: {
@@ -18,6 +18,9 @@ export default {
       "18": "18px",
       "20": "20px",
       "24": "24px",
+      "28": "28px",
+      "32": "32px",
+      "36": "36px",
     },
     container: {
       center: true,

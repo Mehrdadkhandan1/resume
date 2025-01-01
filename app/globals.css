@@ -11,3 +11,41 @@ body {
 body {
     @apply container bg-primary
 }
+
+
+
+
+.image-landing{
+
+    animation: imageAnimate 1s cubic-bezier(0.4, 0, 0.6, 1) ;
+}	
+
+@keyframes imageAnimate {
+  0% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes textAnimate {
+  0% {
+    transform: translateX(-120px);
+    opacity: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.information-landing  {
+    animation: textAnimate 1s cubic-bezier(0.4, 0, 0.6, 1) ;
+
+}
