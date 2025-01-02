@@ -5,47 +5,107 @@
 
 html,
 body {
-    @apply !bg-primary w-full h-full relative min-h-screen 
+  @apply !bg-primary w-full h-full relative min-h-screen
 }
 
 body {
-    @apply container bg-primary
+  @apply container bg-primary
 }
 
 
 
 
-.image-landing{
+.image-landing {
 
-    animation: imageAnimate 1s cubic-bezier(0.4, 0, 0.6, 1) ;
-}	
+  animation: imageAnimate 1s cubic-bezier(0.4, 0, 0.6, 1);
+}
 
 @keyframes imageAnimate {
   0% {
     transform: translateY(-120px);
     opacity: 0;
   }
+
   50% {
     opacity: .5;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 @keyframes textAnimate {
   0% {
     transform: translateX(-120px);
     opacity: 0;
   }
+
   50% {
     opacity: .5;
   }
+
   100% {
     opacity: 1;
   }
 }
 
-.information-landing  {
-    animation: textAnimate 1s cubic-bezier(0.4, 0, 0.6, 1) ;
+.information-landing {
+  animation: textAnimate 1s cubic-bezier(0.4, 0, 0.6, 1);
+}
 
+
+@keyframes headerMobileAnimate {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 110%
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.header-animate {
+
+  animation: headerMobileAnimate 0.4s linear;
+}
+
+.nav-item-link {
+
+  animation: navItemAnimate 0.5s linear ;
+}
+
+@keyframes bubble {
+  0% {
+    height: 100%;
+    opacity: 0.3;
+    width: 0;
+  }
+  60% {
+    height: 100%;
+    opacity: 0.5;
+  }
+  80% {
+    height: 100%;
+    opacity: 0.6;
+  }
+  80% {
+    height: 100%;
+    opacity: 0.2;
+  }
+  100% {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+.bubble {
+  position: absolute;
+
+  animation: bubble 0.6s cubic-bezier(.57,.21,.69,1.25) forwards  ;
 }

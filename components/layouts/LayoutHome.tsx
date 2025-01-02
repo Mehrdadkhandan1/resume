@@ -9,7 +9,7 @@ const LayoutHome = ({ children }: Readonly<{
         <div className='w-full h-full relative'>
             <Header />
             <MobileHeader />
-            {/* {children} */}
+            {children}
         </div>
     )
 }

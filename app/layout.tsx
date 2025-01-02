@@ -44,9 +44,7 @@ export default function RootLayout({
 
       </head>
       <body className="overflow-hidden max-h-screen">
-        <LayoutHome>
-          {children}
-        </LayoutHome>
+        {children}
       </body>
     </html>
   );

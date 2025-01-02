@@ -12,7 +12,7 @@ const ChatHeader = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
-        <div className='w-10 h-10 flex items-center justify-center'>
+        <div className='w-10 h-10 hidden items-center justify-center md:flex'>
             <div onClick={() => onOpen()} className='p-1.5 bg-black  text-white cursor-pointer rounded-full text-24 '>
                 <RiChatAiLine />
             </div>

@@ -6,7 +6,7 @@ export default {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(button|modal|navbar|ripple|spinner).js"
+    "./node_modules/@nextui-org/theme/dist/components/(button|form|input|modal|navbar|ripple|spinner).js"
   ],
   theme: {
     fontSize: {
@@ -25,7 +25,11 @@ export default {
     container: {
       center: true,
     },
+    
     extend: {
+      boxShadow : {
+        'custom' : "0px 0px 15px -6px rgba(0,0,0,0.75)",
+      },
       colors: {
         primary: '#FCFCFC',
         white: '#E7EAEC',
