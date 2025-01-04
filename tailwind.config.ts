@@ -29,6 +29,7 @@ export default {
     extend: {
       boxShadow : {
         'custom' : "0px 0px 15px -6px rgba(0,0,0,0.75)",
+        'blub' : "1px -1px 200px 200px #a855f7",
       },
       colors: {
         primary: '#FCFCFC',

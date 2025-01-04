@@ -1,6 +1,9 @@
-import LayoutHome from "@/components/layouts/LayoutHome";
+"user client"
 import "./globals.css";
 import localFont from 'next/font/local'
+import { defaultUser } from "@/utils/defaultValues";
+import AppProviders from "@/providers/AppProviders";
+import { getSession } from "next-auth/react";
 
 const iranSans = localFont({
   src: [
@@ -30,21 +33,24 @@ const iranSans = localFont({
     },
   ]
 })
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
 
+  await defaultUser()
+  const session = await getSession()
+  console.log("session : " + session);
   return (
     <html lang="en" dir="rtl" className={iranSans.className}>
       <head>
-      <link rel="icon" href="/logo/favicon.ico" sizes="any" />
-
-
+        <link rel="icon" href="/logo/favicon.ico" sizes="any" />
       </head>
-      <body className="overflow-hidden max-h-screen">
-        {children}
+      <body className="lg:overflow-hidden max-h-screen">
+        <AppProviders session={session} >
+          {children}
+        </AppProviders>
       </body>
     </html>
   );

@@ -16,7 +16,9 @@ type Props = {
 const CustomInput = ({ name, control, error, label, className }: Props) => {
     return (
         <Controller name={name} control={control} render={({ field }) => {
-            return <Input className={cn(className,'bg-transparent border-1  rounded-lg')} label={label} {...field} name={name} errorMessage={error} />
+            return <Input classNames={{
+                label: 'font-bold '
+            }} className={cn(className, 'bg-transparent border-1  rounded-lg')} label={label} {...field} name={name} errorMessage={error} />
         }} />
     )
 }

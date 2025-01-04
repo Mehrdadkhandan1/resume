@@ -4,7 +4,7 @@ import React from 'react'
 
 const InformationBox = () => {
     return (
-        <div className='flex flex-col gap-6 items-center  information-landing order-1 lg:order-first px-2'>
+        <div className='flex flex-col gap-6   information-landing order-1 lg:order-first px-2'>
             <h4 className=' text-14 md:text-16 lg:text-18 font-semibold'>
                 سلام من مهردادم 👋
             </h4>
