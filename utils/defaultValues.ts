@@ -13,7 +13,6 @@ export const defaultUser = async () => {
                 username: process.env.USER_ADMIN,
                 password: hashed
             })
-            console.log(newUser);
 
         }
     } catch (err) {

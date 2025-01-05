@@ -9,7 +9,6 @@ export const authenticate = async (username: String | undefined, password: Strin
         await connectDb()
         const user = await User.findOne({ username })
         const checkPassword = await compareTextWithHash(password, user.password)
-        console.log(checkPassword);
         if (user)
             return user
         else

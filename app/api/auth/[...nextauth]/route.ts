@@ -1,26 +1,37 @@
 import { authenticate } from "@/services/authService"
-import { compareTextWithHash } from "@/utils/hash"
-import NextAuth, { AuthOptions } from "next-auth"
+import { User } from "@/types/User"
+import NextAuth, { AuthOptions, Awaitable } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
 export const authOption: AuthOptions = {
+    secret: process.env.SECRET_KEY,
+
     providers: [CredentialsProvider({
         name: 'Credentials',
         credentials: {
             username: {},
             password: {},
         },
-        async authorize(credentials, req) {
+        async authorize(credentials) {
             if (typeof credentials !== 'undefined') {
                 const checkUser = await authenticate(credentials?.username, credentials.password)
-                console.log(`${checkUser} user name`);
-                return { status: "success", user: checkUser }
+                console.log(checkUser);
+                return { username: checkUser.username, password: "sadsad" }
             } else {
-                return { status: 'feaild', data: '' }
+                throw new Error('bad requst')
             }
         }
         ,
-    })], session: { strategy: "jwt" }
+    })], callbacks: {
+
+        async jwt({ token, user }) {
+            console.log(user);
+            if (user) {
+                token.username = user.username
+            }
+            return token
+        }
+    }, session: { strategy: "jwt" }
 
 }
 
@@ -28,4 +39,4 @@ export const authOption: AuthOptions = {
 
 const handler = NextAuth(authOption)
 
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };

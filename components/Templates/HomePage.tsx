@@ -1,8 +1,12 @@
 import React from 'react'
 import InformationBox from '../ui/Home/InformationBox'
 import Image from 'next/image'
+import { getServerSession } from 'next-auth'
+import { authOption } from '@/app/api/auth/[...nextauth]/route'
 
-const HomePage = () => {
+const HomePage = async () => {
+    const session = await getServerSession(authOption)
+    console.log(session);
     return (
         <div className='grid lg:grid-cols-2 items-center w-full h-full justify-items-center'>
             <div className='absolute shadow-blub opacity-10 w-30 h-30  rounded-full   right-[0%] top-[15%] bg-purple-500'></div>

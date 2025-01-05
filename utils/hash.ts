@@ -14,9 +14,8 @@ export const hash = async (password: String | undefined) => {
 
 
 export const compareTextWithHash = async (text: String | undefined, hash: String | undefined) => {
-    console.log(text);
-    console.log(hash);
+
     const check = await bcrypt.compare(text, hash)
-    console.log(check);
+;
     return check
 }

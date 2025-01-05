@@ -7,7 +7,6 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 const LayoutAdmin = async ({ children }: any) => {
   await connectDb()
   const session = await getSession()
-  console.log("session : " + session);
 
   return (
     <div className='p-4'>

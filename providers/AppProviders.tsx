@@ -8,14 +8,6 @@ type Props = {
     session: Session | null,
 }
 const AppProviders = ({ children, session }: Props) => {
-    useEffect(() => {
-        const login = async () => {
-            const res: any | undefined = await signIn('credentials', { username: 'mehrdadkhandan1', password: "mehrdad1381", redirect: false })
-            const result = await res
-            console.log(result);
-        }
-        login()
-    }, [])
     return (
         <SessionProvider session={session} >
             <NextUIProvider className='h-full relative'>
