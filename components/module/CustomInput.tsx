@@ -1,25 +1,44 @@
 "use client"
-import { Input } from '@nextui-org/input'
+import { Input, InputProps } from '@nextui-org/input'
 import { cn } from '@nextui-org/theme'
 import React from 'react'
-import { Control, Controller, FieldValues } from 'react-hook-form'
+import { Control, Controller, FieldError, FieldValues, Path, PathValue } from 'react-hook-form'
+type CustomInputType<T extends FieldValues> = {
+    control: Control<T>;
+    name: Path<T>;
+    error?: FieldError;
+
+} & InputProps;
 
 type Props = {
     name: string,
     control: Control<FieldValues>
-    error: string | null,
+    error: FieldError,
     label: string,
     className?: string
 
 }
 
-const CustomInput = ({ name, control, error, label, className }: Props) => {
+function CustomInput<T extends FieldValues>({
+    className,
+    control,
+    name,
+    error,
+    label
+}: CustomInputType<T>) {
+    console.log(error);
     return (
-        <Controller name={name} control={control} render={({ field }) => {
-            return <Input classNames={{
-                label: 'font-bold '
-            }} className={cn(className, 'bg-transparent border-1  rounded-lg')} label={label} {...field} name={name} errorMessage={error} />
-        }} />
+        <Controller name={name}
+            defaultValue={"" as PathValue<T, Path<T>>}
+            control={control} render={({ field }) => {
+                return <Input
+                    isInvalid={!!error}
+                    classNames={{
+                        label: 'font-bold '
+                    }} className={cn(className, 'bg-transparent border-1  rounded-lg')} label={label} {...field} name={name} errorMessage={<p>
+                        {error?.message}
+                    </p>} />
+            }} />
     )
 }
 

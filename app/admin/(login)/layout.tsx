@@ -10,11 +10,11 @@ const LayoutAdmin = async ({ children }: any) => {
 
   return (
     <div className='p-4'>
-      <div className='flex relative'>
-        <Link className='bg-black absolute  gap-2 text flex items-center  text-white  p-2 rounded-lg' href={'/'}>
+      <div className='flex relative '>
+        <Link className='bg-black absolute cursor-pointer z-10  gap-2 text flex items-center  text-white  p-2 rounded-lg' href={'/'}>
           <FaLongArrowAltRight />
           <span>
-            بازگشت به صفحه اصلی
+            بازگشت به صفحه اصلی 
           </span>
         </Link>
       </div>
