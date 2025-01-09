@@ -1,7 +1,7 @@
-import LoginAdminPage from "@/components/Templates/LoginAdminPage"
 import { getServerSession } from "next-auth"
 import { authOption } from "../../api/auth/[...nextauth]/route"
 import { redirect } from 'next/navigation'
+import LoginAdminPage from "@/components/Templates/Admin/LoginAdminPage"
 
 
 const LoginAdmin = async () => {

@@ -1,16 +1,16 @@
 "use client"
 import { Form } from "@nextui-org/form"
 import { useForm } from "react-hook-form"
-import CustomInput from "../module/CustomInput"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { signinValidate } from "@/validation/SigninValidation"
 import { FaUser } from "react-icons/fa";
-import CustomButton from "../module/CustomButton"
 import { signIn } from "next-auth/react"
 import { User } from "@/types/User"
 import toast from "react-hot-toast"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import CustomInput from "@/components/module/CustomInput"
+import CustomButton from "@/components/module/CustomButton"
 
 const LoginAdminPage = () => {
     const { control, handleSubmit, getValues,
@@ -28,6 +28,8 @@ const LoginAdminPage = () => {
         if (res.ok) {
             toast.success("ورود موفق آمیر . در حال انتقال به داشبورد ....")
             navigate.push('/admin/dashboard')
+        } else {
+            toast.error(res.error)
         }
     }
 

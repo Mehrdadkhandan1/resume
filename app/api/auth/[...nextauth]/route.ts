@@ -15,20 +15,21 @@ export const authOption: AuthOptions = {
                 password: { label: "Password", type: "password" },
             },
             async authorize(credentials) {
-                console.log(credentials);
                 if (!credentials) throw new Error('Bad request')
 
                 const checkUser = await authenticate(credentials.username, credentials.password)
 
                 if (checkUser) {
                     const user: User = {
-                        id: checkUser.id,
-                        username: checkUser.username,
-                        password: checkUser.password
+                        id: `${checkUser.id}`,
+                        name: `${checkUser.name}`,
+                        lastName: `${checkUser.lastName}`,
+                        username: `${checkUser.username}`,
+                        password: `${checkUser.password}`
                     }
                     return user
                 }
-                throw new Error('Invalid credentials')
+                throw new Error('نام کاربری یا رمز عبور اشتباه میباشد ')
             }
         })
     ],
@@ -36,12 +37,16 @@ export const authOption: AuthOptions = {
         async jwt({ token, user }) {
             if (user) {
                 token.username = user.username
+                token.name = user.name
+                token.lastName = user.lastName
+                
+
             }
             return token
         },
         async session({ session, token }) {
             if (token) {
-                session.user = { username: token.username } as any
+                session.user = { username: token.username, name: token.name, lastName: token.lastName } as any
                 console.log(session);
                 console.log(token);
             } return session

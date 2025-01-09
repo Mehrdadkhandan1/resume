@@ -6,7 +6,7 @@ export default {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(button|form|input|modal|navbar|ripple|spinner).js"
+    "./node_modules/@nextui-org/theme/dist/components/(button|dropdown|form|input|modal|navbar|ripple|spinner|menu|divider|popover).js"
   ],
   theme: {
     fontSize: {
@@ -28,7 +28,7 @@ export default {
     
     extend: {
       boxShadow : {
-        'custom' : "0px 0px 15px -6px rgba(0,0,0,0.75)",
+        'custom' : "0px 0px 10px -4px rgba(0,0,0,0.75)",
         'blub' : "1px -1px 200px 200px #a855f7",
       },
       colors: {

@@ -11,7 +11,9 @@ export const defaultUser = async () => {
             const hashed = await hash(process.env.PASSWORD_ADMIN)
             const newUser = await User.create({
                 username: process.env.USER_ADMIN,
-                password: hashed
+                password: hashed,
+                name: 'مهرداد',
+                lastName: "خندان"
             })
 
         }
