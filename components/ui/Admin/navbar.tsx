@@ -20,7 +20,7 @@ const Navbar = () => {
     const isActive = (path: string) => pathName === path
     return (
         <nav className={`flex flex-col gap-2 w-full px-3 mt-2 `}>
-            <ul className='flex  gap-4 text-20 flex-col'>
+            <ul className='flex  gap-4 text-16 xl:text-20 flex-col'>
                 {navIcons.map((link, index) => {
                     return <li className={`${isActive(link.href) ? "bg-purple-200 font-medium text-purple-400" : "bg-transparent text-gray-500"} p-1 rounded-md  `} key={index} >
                         <Link className={`flex items-center gap-2`} href={link.href}>

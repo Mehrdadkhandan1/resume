@@ -47,7 +47,7 @@ export default async function RootLayout({
       <head>
         <link rel="icon" href="/logo/favicon.ico" sizes="any" />
       </head>
-      <body className="lg:overflow-hidden max-h-screen">
+      <body className="lg:overflow-hidden max-h-screen m-auto ">
         <AppProviders session={session} >
           {children}
         </AppProviders>
