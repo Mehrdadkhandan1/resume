@@ -6,9 +6,9 @@ import React from 'react'
 const DashboardPage = () => {
     return (
         <main className='flex flex-col gap-4 py-4'>
-            {/* <Banner /> */}
-            {/* <Details /> */}
-            {/* <Messages /> */}
+            <Banner />
+            <Details />
+            <Messages />
         </main>
     )
 }

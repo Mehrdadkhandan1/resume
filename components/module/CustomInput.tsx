@@ -24,7 +24,8 @@ function CustomInput<T extends FieldValues>({
     control,
     name,
     error,
-    label
+    label,
+    ...rest
 }: CustomInputType<T>) {
     console.log(error);
     return (
@@ -32,6 +33,8 @@ function CustomInput<T extends FieldValues>({
             defaultValue={"" as PathValue<T, Path<T>>}
             control={control} render={({ field }) => {
                 return <Input
+                    id={name}
+                    {...rest}
                     isInvalid={!!error}
                     classNames={{
                         label: 'font-bold '

@@ -5,12 +5,8 @@ const Messages = () => {
     return (
         <div className=''>
             <h3 className='text-24 font-bold'> پیام ها</h3>
-            <div className=' rounded-lg grid grid-cols-2 gap-2 my-4  '>
+            <div className=' rounded-lg grid grid-cols-1 lg:grid-cols-2 gap-2 my-4  '>
 
-                <CardMessage />
-                <CardMessage />
-                <CardMessage />
-                <CardMessage />
                 <CardMessage />
             </div>
         </div>

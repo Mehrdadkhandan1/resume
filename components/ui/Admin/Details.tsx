@@ -6,7 +6,7 @@ import { RiUserSharedLine } from "react-icons/ri";
 
 const Details = () => {
     return (
-        <div className='grid grid-cols-3 gap-4'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
             <DetailsCard icon={<LuEye />} title='بازدید از سایت' value='100' />
             <DetailsCard icon={<GoProjectSymlink />} title='اخرین پروژه ثبت شده' value='100' />
             <DetailsCard icon={<RiUserSharedLine />} title='اخرین بازدید شما ' value='100' />
