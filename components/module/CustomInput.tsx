@@ -7,17 +7,9 @@ type CustomInputType<T extends FieldValues> = {
     control: Control<T>;
     name: Path<T>;
     error?: FieldError;
-
 } & InputProps;
 
-type Props = {
-    name: string,
-    control: Control<FieldValues>
-    error: FieldError,
-    label: string,
-    className?: string
 
-}
 
 function CustomInput<T extends FieldValues>({
     className,
