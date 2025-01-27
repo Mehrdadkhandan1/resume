@@ -9,9 +9,9 @@ import { IoSettingsOutline } from "react-icons/io5";
 
 const navIcons = [
     { href: "/admin/dashboard", name: 'داشبورد', icon: <MdOutlineSpaceDashboard /> },
-    { href: "/admin/projects", name: 'پروژه ها ', icon: <FaRegFileCode /> },
-    { href: "/admin/edit-user", name: 'ویرایش اطلاعات', icon: <FaRegUser /> },
-    { href: "/admin/setting", name: 'تنظیمات سایت', icon: <IoSettingsOutline /> },
+    { href: "/admin/dashboard/projects", name: 'پروژه ها ', icon: <FaRegFileCode /> },
+    { href: "/admin/dashboard/edit-user", name: 'ویرایش اطلاعات', icon: <FaRegUser /> },
+    { href: "/admin/dashboard/setting", name: 'تنظیمات سایت', icon: <IoSettingsOutline /> },
 ]
 
 const Navbar = () => {

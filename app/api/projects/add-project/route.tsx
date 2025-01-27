@@ -24,17 +24,20 @@ interface FormidableFiles {
 
 
 export async function POST(req: NextRequest) {
+    
     try {
         await fs.mkdir(uploadDir, { recursive: true });
 
         const form = formidable({
             uploadDir,
             filename: (name, ext, part, form) => {
-                return uuidv4() + ext ;
+            
+                return uuidv4() + ext;
             },
-        });
-
-        return new Promise((resolve, reject) => {
+        }); 
+        const test =  new Promise((resolve, reject) => {
+            console.log('err');
+            console.log(form.parse);
             form.parse(req as any, async (err, fields, files) => {
                 if (err) {
                     console.error(err);
@@ -42,25 +45,13 @@ export async function POST(req: NextRequest) {
                     return;
                 }
 
-                const uploadedFile = (files as FormidableFiles)?.image?.[0];
-                if (!uploadedFile) {
-                    resolve(NextResponse.json({ message: 'فایلی برای آپلود پیدا نشد' }, { status: 400 }));
-                    return;
-                }
-
-                const fileExtension = path.extname(uploadedFile.originalFilename);
-                const allowedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
-
-                if (!allowedExtensions.includes(fileExtension.toLowerCase())) {
-                    await fs.unlink(uploadedFile.filepath)
-                    resolve(NextResponse.json({ message: 'پسوند فایل غیر مجاز است، لطفاً یک فایل با فرمت jpg، jpeg، png یا gif انتخاب کنید.' }, { status: 400 }));
-                    return;
-                }
+              
 
 
                 resolve(NextResponse.json({ message: 'فایل با موفقیت آپلود شد' }, { status: 200 }));
             });
         });
+        return NextResponse.json({a:"a"})
     } catch (error: any) {
         console.error(error);
         return NextResponse.json({ message: 'خطا در آپلود' }, { status: 500 });

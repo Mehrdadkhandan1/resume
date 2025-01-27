@@ -19,7 +19,6 @@ function CustomInput<T extends FieldValues>({
     label,
     ...rest
 }: CustomInputType<T>) {
-    console.log(error);
     return (
         <Controller name={name}
             defaultValue={"" as PathValue<T, Path<T>>}
@@ -29,8 +28,9 @@ function CustomInput<T extends FieldValues>({
                     {...rest}
                     isInvalid={!!error}
                     classNames={{
-                        label: 'font-bold '
-                    }} className={cn(className, 'bg-transparent border-1  rounded-lg')} label={label} {...field} name={name} errorMessage={<p>
+                        inputWrapper:"bg-transparent",
+                        label: 'font-bold  '
+                    }} className={cn([className, 'bg-transparent border-1   rounded-lg '])} label={label} {...field} name={name} errorMessage={<p>
                         {error?.message}
                     </p>} />
             }} />

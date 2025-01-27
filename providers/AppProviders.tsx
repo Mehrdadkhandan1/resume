@@ -8,6 +8,7 @@ type Props = {
     session: Session | null,
 }
 const AppProviders = ({ children, session }: Props) => {
+    
     return (
         <SessionProvider session={session} >
             <NextUIProvider className='h-full relative'>
