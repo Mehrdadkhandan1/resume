@@ -1,7 +1,7 @@
 "user client"
 import "./globals.css";
 import localFont from 'next/font/local'
-import { defaultUser } from "@/utils/defaultValues";
+import { defaultIndexValue, defaultUser } from "@/utils/defaultValues";
 import AppProviders from "@/providers/AppProviders";
 import { getSession } from "next-auth/react";
 
@@ -40,8 +40,8 @@ export default async function RootLayout({
 }>) {
 
   await defaultUser()
+  await defaultIndexValue()
   const session = await getSession()
-  console.log("session : " + session);
   return (
     <html lang="en" dir="rtl" className={iranSans.className}>
       <head>

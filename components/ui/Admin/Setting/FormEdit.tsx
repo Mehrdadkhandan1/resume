@@ -16,7 +16,7 @@ const FormEdit = () => {
       </h3>
       <CustomInput control={control} name='welcome' label='پیام خوش آمد گویی' />
       <CustomTextarea control={control} name='description' label= 'توضیحات ' />
-      <ChangePicture    control={control} name='welcome' />
+      <ChangePicture    control={control} name='picture' />
     </div>
   )
 }
