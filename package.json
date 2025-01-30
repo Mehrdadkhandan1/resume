@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroui/dropdown": "^2.3.10",
+    "@heroui/system": "^2.4.7",
+    "@heroui/theme": "^2.4.6",
     "@hookform/resolvers": "^3.9.1",
     "@nextui-org/button": "^2.2.8",
     "@nextui-org/dropdown": "^2.3.9",

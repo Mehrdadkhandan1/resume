@@ -2,6 +2,6 @@
 export type Project = {
     name: string,
     description: string,
-    picture: any,
+    picture: FileList,
     link?: string
 }

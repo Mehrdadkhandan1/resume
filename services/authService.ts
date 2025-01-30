@@ -3,7 +3,7 @@ import connectDb from "@/utils/db"
 import { compareTextWithHash } from "@/utils/hash"
 
 
-export const authenticate = async (username: String | undefined, password: String | undefined) => {
+export const authenticate = async (username: string | undefined, password: string | undefined) => {
     try {
 
         await connectDb()

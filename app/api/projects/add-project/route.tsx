@@ -1,59 +1,47 @@
-import formidable from 'formidable';
-import fs from 'fs/promises';
-import { v4 as uuidv4 } from 'uuid';
-import path from 'path';
-import { NextResponse, NextRequest } from 'next/server';
+// app/api/upload/route.ts
+import { NextResponse } from "next/server";
+import fs from "fs";
+import path from "path";
 
+export async function POST(request: Request) {
+  try {
+    // خواندن داده‌های فرم
+    const formData = await request.formData();
+    const name = formData.get("name") as string;
+    const description = formData.get("description") as string;
 
-export const config = {
-    api: {
-        bodyParser: false,
-    },
-};
+    const file = formData.get("picture") as File;
 
-const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-
-interface FormidableFile extends formidable.File {
-    originalFilename: string
-    filepath: string
-}
-
-interface FormidableFiles {
-    image?: FormidableFile[]
-}
-
-
-export async function POST(req: NextRequest) {
-    
-    try {
-        await fs.mkdir(uploadDir, { recursive: true });
-
-        const form = formidable({
-            uploadDir,
-            filename: (name, ext, part, form) => {
-            
-                return uuidv4() + ext;
-            },
-        }); 
-        const test =  new Promise((resolve, reject) => {
-            console.log('err');
-            console.log(form.parse);
-            form.parse(req as any, async (err, fields, files) => {
-                if (err) {
-                    console.error(err);
-                    resolve(NextResponse.json({ message: 'خطا در پردازش فایل' }, { status: 500 }));
-                    return;
-                }
-
-              
-
-
-                resolve(NextResponse.json({ message: 'فایل با موفقیت آپلود شد' }, { status: 200 }));
-            });
-        });
-        return NextResponse.json({a:"a"})
-    } catch (error: any) {
-        console.error(error);
-        return NextResponse.json({ message: 'خطا در آپلود' }, { status: 500 });
+    if (!file) {
+      return NextResponse.json(
+        { message: "فایلی دریافت نشد." },
+        { status: 400 }
+      );
     }
+
+    // تبدیل فایل به بافر
+    const buffer = Buffer.from(await file.arrayBuffer());
+
+    // ایجاد پوشه uploads اگر وجود نداشته باشد
+    const uploadsDir = path.join(process.cwd(), "public", "uploads");
+    if (!fs.existsSync(uploadsDir)) {
+      fs.mkdirSync(uploadsDir, { recursive: true });
+    }
+
+    // ذخیره فایل در پوشه public/uploads
+    const filePath = path.join(uploadsDir, file.name);
+    fs.writeFileSync(filePath, buffer);
+
+    // بازگشت پاسخ موفقیت‌آمیز
+    return NextResponse.json({
+      message: "فایل با موفقیت ذخیره شد.",
+      fileUrl: `/uploads/${file.name}`, // آدرس فایل برای دسترسی عمومی
+    });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      { message: "خطا در ذخیره‌سازی فایل." },
+      { status: 500 }
+    );
+  }
 }

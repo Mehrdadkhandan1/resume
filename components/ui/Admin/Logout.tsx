@@ -1,12 +1,10 @@
 "use client"
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/dropdown'
 import { signOut } from 'next-auth/react'
-import React, { useState } from 'react'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import { IoMdLogOut } from "react-icons/io";
 
 const Logout = () => {
-    const [loading, setLoading] = useState<boolean>(false)
     const signoutHandler = async () => {
 
         const res = await signOut({ redirect: false })
