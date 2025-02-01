@@ -10,7 +10,6 @@ type Props<T extends FieldValues> = {
 
 } & TextAreaProps;
 function CustomTextarea<T extends FieldValues>({ name, control, error, className, ...rest }: Props<T>) {
-    console.log(error);
     return <Controller
         defaultValue={"" as PathValue<T, Path<T>>}
         control={control} name={name} render={({ field }) =>

@@ -28,10 +28,17 @@ export const defaultUser = async () => {
 export const defaultIndexValue = async () => {
     try {
         await connectDb()
-        const value = IndexValue.getMaxListeners()
-        console.log(`mehrdad`);
-        console.log(`${value} index`);
+
+        
+        const count = await IndexValue.countDocuments()
+        if (!count) {
+            await IndexValue.create({
+                welcome: "سلام من مهردادم 👋", description: "یه برنامه نویس پر شور با دوسال تجربه در زمینه فرانت اند با کتابخونه های ری اکت و نکست جی اس", picture: '/public/uploads/profile.jpg'
+            })
+        }
+
     } catch (err) {
+
         console.log(err);
     }
 }

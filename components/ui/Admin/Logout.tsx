@@ -8,7 +8,6 @@ const Logout = () => {
     const signoutHandler = async () => {
 
         const res = await signOut({ redirect: false })
-        console.log(console.log(res))
     }
 
     return (

@@ -5,7 +5,6 @@ import React from 'react'
 
 const Banner = async () => {
     const session = await getServerSession(authOption)
-    console.log(session);
     return (
         <div className='w-full bg-purple-200 rounded-lg p-1 flex lg:items-center relative  lg:justify-between flex-col lg:flex-row lg:p-10  gap-6  mt-5 '>
 

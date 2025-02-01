@@ -19,7 +19,6 @@ export const authenticate = async (username: string | undefined, password: strin
         else
             return null
     } catch (err) {
-        console.log(err);
         return null
     }
 

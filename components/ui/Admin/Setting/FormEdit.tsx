@@ -9,14 +9,19 @@ const FormEdit = () => {
   const { control, handleSubmit, formState: { errors } } = useForm({
     mode: 'onChange',
   })
+  const submitEdit = async (value: {}) => {
+    console.log(value);
+  }
   return (
     <div className='flex flex-col gap-4 mt-4'>
       <h3 className='text-18 font-semibold text-primary-300'>
         صفحه اصلی
       </h3>
-      <CustomInput control={control} name='welcome' label='پیام خوش آمد گویی' />
-      <CustomTextarea control={control} name='description' label= 'توضیحات ' />
-      <ChangePicture    control={control} name='picture' />
+      <form onSubmit={handleSubmit(submitEdit)}>
+        <CustomInput control={control} name='welcome' label='پیام خوش آمد گویی' />
+        <CustomTextarea control={control} name='description' label='توضیحات ' />
+        <ChangePicture control={control} name='picture' />
+      </form>
     </div>
   )
 }
