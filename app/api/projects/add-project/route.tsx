@@ -9,12 +9,11 @@ export async function POST(request: Request) {
     const formData = await request.formData();
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
-
     const file = formData.get("picture") as File;
 
-    if (!file) {
+    if (!name || !description || !file) {
       return NextResponse.json(
-        { message: "فایلی دریافت نشد." },
+        { message: "لطفا تمام فیلدها را پر کنید." },
         { status: 400 }
       );
     }
@@ -32,6 +31,8 @@ export async function POST(request: Request) {
     const filePath = path.join(uploadsDir, file.name);
     fs.writeFileSync(filePath, buffer);
 
+    
+
     // بازگشت پاسخ موفقیت‌آمیز
     return NextResponse.json({
       message: "فایل با موفقیت ذخیره شد.",
@@ -45,3 +46,5 @@ export async function POST(request: Request) {
     );
   }
 }
+
+// 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
