@@ -17,9 +17,9 @@ export async function POST(request: Request) {
     const userId = formData.get("userId")
     const file = formData.get("picture") as File;
 
-    if (!file) {
+    if (!name || !description || !file) {
       return NextResponse.json(
-        { message: "فایلی دریافت نشد." },
+        { message: "لطفا تمام فیلدها را پر کنید." },
         { status: 400 }
       );
     }
@@ -37,6 +37,10 @@ export async function POST(request: Request) {
       name, description, picture: filePath,
       createdBy : mongoose.Schema.Types.ObjectId
     })
+
+    
+
+    // بازگشت پاسخ موفقیت‌آمیز
     return NextResponse.json({
       message: "فایل با موفقیت ذخیره شد.",
       fileUrl: `/uploads/${file.name}`,
@@ -49,3 +53,4 @@ export async function POST(request: Request) {
     );
   }
 }
+
