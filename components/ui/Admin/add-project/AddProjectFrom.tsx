@@ -3,13 +3,17 @@ import CustomButton from "@/components/module/CustomButton";
 import CustomInput from "@/components/module/CustomInput";
 import CustomTextarea from "@/components/module/CustomTextarea";
 import http from "@/services/http";
+import { addProject } from "@/services/project";
 import { Project } from "@/types/Project";
 import { addProjectValidation } from "@/validation/AddProjectValidation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
+import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { MdAdd } from "react-icons/md";
 
 const AddProjectFrom = () => {
+  const [url, setUrl] = useState<string>('')
   const {
     control,
     handleSubmit,
@@ -27,24 +31,29 @@ const AddProjectFrom = () => {
       formData.append("picture", value.picture[0]);
     }
 
-    const res = await http.post("/projects/add-project", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    addProject(formData)
   };
 
   return (
     <div>
+
       <div className="w-11/12 m-auto h-[400px] border-2 border-dashed rounded-lg my-4 flex items-center justify-center ">
-        <label
-          htmlFor="picture"
-          className="text-24 cursor-pointer flex flex-col gap-2 "
+        <label htmlFor="picture"
+          className="text-24 cursor-pointer flex flex-col gap-2 items-center justify-center w-full h-[350px]  "
         >
-          <span className="border-2 border-dashed p-2 rounded-md flex items-center justify-center ">
-            <MdAdd />
-          </span>
-          <span className="font-semibold text-18"> اپلود تصویر</span>
+          {url ?
+            <span className="w-full h-full flex items-center justify-center">
+              <Image className="h-full object-cover" height={200} width={200} src={url} alt="picture" />
+            </span> 
+            :
+            <>
+              <span className="border-2 border-dashed p-2 rounded-md flex items-center justify-center ">
+                <MdAdd />
+              </span>
+
+              <span className="font-semibold text-18"> اپلود تصویر</span>
+            </>
+          }
         </label>
         <Controller
           control={control}
@@ -55,6 +64,8 @@ const AddProjectFrom = () => {
               id="picture"
               onChange={(e) => {
                 if (e.target.files && e.target.files.length > 0) {
+                  const urlCretor = URL.createObjectURL(e.target.files[0])
+                  setUrl(urlCretor)
                   field.onChange(e.target.files); // ارسال FileList به react-hook-form
                 }
               }}

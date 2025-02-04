@@ -6,13 +6,13 @@ const projectSchema = new Schema({
     name: {
         type: String,
         required: true,
-        description: String,
-        createdBy: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        },
-        picture: String,
-    }
+    },
+    description: String,
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    picture: String,
 })
 
 
