@@ -14,7 +14,9 @@ body {
 }
 
 
-
+.container-grid {
+  @apply container grid grid-cols-1 gap-10 lg:gap-5 lg:p-0 lg:grid-cols-7 xl:grid-cols-11 lg:col-span-9 ;
+}
 
 .image-landing {
 
