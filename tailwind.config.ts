@@ -32,10 +32,10 @@ export default {
       boxShadow : {
         'custom' : "0px 0px 10px -4px rgba(0,0,0,0.75)",
         'blub' : "1px -1px 200px 200px #a855f7",
+        "project":"0 0 7px 0px #00000061",
       },
       colors: {
         primary: '#FCFCFC',
-        white: '#E7EAEC',
         red: '#B90F48'
       },
       

@@ -1,9 +1,12 @@
 import ProjectsPage from '@/components/Templates/Admin/ProjectsPage'
-import {cache} from 'react'
+import Project from '@/models/Project'
+import { cache } from 'react'
 
-const Projects = () => {
+const Projects = async () => {
+    const projects = await Project.find({})
+    console.log(projects);
 
-    return <ProjectsPage />
+    return <ProjectsPage projects={projects} />
 }
 
 export default Projects
