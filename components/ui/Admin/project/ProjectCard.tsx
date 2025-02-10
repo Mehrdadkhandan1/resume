@@ -1,6 +1,7 @@
 import CustomButton from '@/components/module/CustomButton'
 import { Project } from '@/types/Project'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 interface Props extends Project {
@@ -21,21 +22,22 @@ const ProjectCard = ({ name, description, picture, link, _id }: Props) => {
                         {name}
                     </span>
                 </p>
-                <p>
+                <div>
                     <p className='flex items-center gap-2 '>
-                        <span className='font-bold '>
+                        <span className='font-bold line-clamp-1'>
                             توضیحات پروژه :
                         </span>
 
                         <span>
-                        {description}
-
+                            {description}
                         </span>
                     </p>
-                </p>
+                </div>
                 <div>
                     <CustomButton className='bg-black text-white  shadow-project font-bold'>
-                        مشاهده
+                        <Link href={`/admin/dashboard/projects/${_id}`}>
+                            مشاهده
+                        </Link>
                     </CustomButton>
                 </div>
 

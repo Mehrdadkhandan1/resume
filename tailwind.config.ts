@@ -8,7 +8,7 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/components/(button|dropdown|form|input|modal|navbar|ripple|spinner|menu|divider|popover).js",
-    "./node_modules/@heroui/theme/dist/components/(dropdown|menu|divider|popover|button|ripple|spinner).js"
+    "./node_modules/@heroui/theme/dist/components/(date-picker|dropdown|button|ripple|spinner|calendar|date-input|form|popover|menu|divider).js"
   ],
   theme: {
     fontSize: {
