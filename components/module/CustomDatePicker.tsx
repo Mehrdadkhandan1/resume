@@ -10,7 +10,7 @@ type Props<T extends FieldValues> = {
 } & InputProps
 function CustomDatePicker<T extends FieldValues>({ name, contorl, error }: Props<T>) {
     return <Controller name={name} control={contorl} render={() => {
-        return <DateRangePicker className="max-w-xs" label="Stay duration" />;
+        return <DateRangePicker   />;
 
     }} />
 }

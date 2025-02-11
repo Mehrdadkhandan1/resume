@@ -1,8 +1,8 @@
 'use client'
 import CustomButton from "@/components/module/CustomButton";
+import CustomDatePicker from "@/components/module/CustomDatePicker";
 import CustomInput from "@/components/module/CustomInput";
 import CustomTextarea from "@/components/module/CustomTextarea";
-import http from "@/services/http";
 import { addProject } from "@/services/project";
 import { Project } from "@/types/Project";
 import { addProjectValidation } from "@/validation/AddProjectValidation";
@@ -80,6 +80,7 @@ const AddProjectFrom = () => {
           onSubmit={handleSubmit(submitProject)}
           className="flex gap-3 flex-col"
         >
+          <CustomDatePicker contorl={control} name="deadlineProject"  />
           <CustomInput
             className="w-1/2"
             control={control}
