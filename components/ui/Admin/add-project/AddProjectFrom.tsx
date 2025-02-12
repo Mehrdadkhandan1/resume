@@ -12,6 +12,7 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { MdAdd } from "react-icons/md";
 
+
 const AddProjectFrom = () => {
   const [url, setUrl] = useState<string>('')
   const {
@@ -21,6 +22,7 @@ const AddProjectFrom = () => {
   } = useForm<Project>({
     mode: "onChange",
     resolver: zodResolver(addProjectValidation),
+
   });
 
   const submitProject = async (value: Project) => {
@@ -33,6 +35,7 @@ const AddProjectFrom = () => {
 
     addProject(formData)
   };
+  console.log(errors);
 
   return (
     <div>
@@ -44,7 +47,7 @@ const AddProjectFrom = () => {
           {url ?
             <span className="w-full h-full flex items-center justify-center">
               <Image className="h-full object-cover" height={200} width={200} src={url} alt="picture" />
-            </span> 
+            </span>
             :
             <>
               <span className="border-2 border-dashed p-2 rounded-md flex items-center justify-center ">
@@ -80,7 +83,7 @@ const AddProjectFrom = () => {
           onSubmit={handleSubmit(submitProject)}
           className="flex gap-3 flex-col"
         >
-          <CustomDatePicker contorl={control} name="deadlineProject"  />
+          <CustomDatePicker contorl={control} name="deadlineProject" />
           <CustomInput
             className="w-1/2"
             control={control}

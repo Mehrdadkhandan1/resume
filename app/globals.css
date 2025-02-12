@@ -112,3 +112,9 @@ body {
 
   animation: bubble 0.6s cubic-bezier(.57,.21,.69,1.25) forwards  ;
 }
+
+.date-picker input , .date-picker>div{
+    @apply !py-2  ;
+    height: auto;
+}
+
