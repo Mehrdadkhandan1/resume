@@ -83,7 +83,7 @@ const AddProjectFrom = () => {
           onSubmit={handleSubmit(submitProject)}
           className="flex gap-3 flex-col"
         >
-          <CustomDatePicker contorl={control} name="deadlineProject" />
+          <CustomDatePicker contorl={control} name="deadlineProject"  />
           <CustomInput
             className="w-1/2"
             control={control}
