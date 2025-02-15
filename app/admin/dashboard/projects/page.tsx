@@ -4,7 +4,6 @@ import { cache } from 'react'
 
 const Projects = async () => {
     const projects = await Project.find({})
-    console.log(projects);
 
     return <ProjectsPage projects={projects} />
 }

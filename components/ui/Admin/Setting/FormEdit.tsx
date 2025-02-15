@@ -10,7 +10,6 @@ const FormEdit = () => {
     mode: 'onChange',
   })
   const submitEdit = async (value: {}) => {
-    console.log(value);
   }
   return (
     <div className='flex flex-col gap-4 mt-4'>

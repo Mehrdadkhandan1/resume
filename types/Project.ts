@@ -5,5 +5,8 @@ export type Project = {
     picture: FileList | string,
     link?: string,
     _id: string,
-    deadlineProject: [Date, Date]
+    deadlineProject: {
+        startDate: Date,
+        endDate: Date,
+    }
 }

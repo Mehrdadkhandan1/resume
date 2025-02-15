@@ -27,15 +27,17 @@ const AddProjectFrom = () => {
 
   const submitProject = async (value: Project) => {
     const formData = new FormData();
+    formData.append("deadlineProject", JSON.stringify(value.deadlineProject)); // تبدیل به JSON
     formData.append("name", value.name);
     formData.append("description", value.description);
+
     if (value.picture && value.picture.length > 0) {
       formData.append("picture", value.picture[0]);
     }
 
-    addProject(formData)
+    addProject(formData);
   };
-  console.log(errors);
+
 
   return (
     <div>
@@ -83,9 +85,8 @@ const AddProjectFrom = () => {
           onSubmit={handleSubmit(submitProject)}
           className="flex gap-3 flex-col"
         >
-          <CustomDatePicker contorl={control} name="deadlineProject"  />
+          <CustomDatePicker contorl={control} name="deadlineProject" />
           <CustomInput
-            className="w-1/2"
             control={control}
             name="name"
             label="نام پروژه"

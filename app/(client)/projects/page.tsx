@@ -1,4 +1,4 @@
-import ProjectsPage from '@/components/Templates/ProjectsPage'
+import ProjectsPage from '@/components/Templates/Admin/ProjectsPage'
 import React from 'react'
 
 const Projects = () => {

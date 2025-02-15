@@ -5,7 +5,11 @@ import Link from 'next/link'
 import React from 'react'
 
 interface Props extends Project {
-    picture: string
+    picture: string,
+    key:number,
+    name : string,
+    _id:string,
+    de
 }
 
 const ProjectCard = ({ name, description, picture, link, _id }: Props) => {

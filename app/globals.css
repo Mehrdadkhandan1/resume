@@ -117,4 +117,7 @@ body {
     @apply !py-2  ;
     height: auto;
 }
+.rmdp-container input::placeholder {
+  font-size: 14px !important;
+}
 
