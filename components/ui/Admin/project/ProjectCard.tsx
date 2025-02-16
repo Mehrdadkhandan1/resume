@@ -6,13 +6,13 @@ import React from 'react'
 
 interface Props extends Project {
     picture: string,
-    key:number,
-    name : string,
-    _id:string,
-    de
+    key: number,
+    name: string,
+    _id: string,
+    deadlineProject: { startDate: Date, endDate: Date }
 }
 
-const ProjectCard = ({ name, description, picture, link, _id }: Props) => {
+const ProjectCard = ({ name, description, picture, link, _id, deadlineProject }: Props) => {
     return (
         <div className='relative  shadow-project bg-white px-4 py-3  rounded-lg'>
             <Image className='w-full   h-[500px] object-cover rounded-md' src={picture} width={800} height={800} alt={`project ${name}`} />
@@ -35,6 +35,11 @@ const ProjectCard = ({ name, description, picture, link, _id }: Props) => {
                         <span>
                             {description}
                         </span>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        شروع پروژه : {new Date(deadlineProject.startDate).toLocaleDateString('fa')}
                     </p>
                 </div>
                 <div>
