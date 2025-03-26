@@ -1,7 +1,7 @@
 import User from "@/models/User"
 import connectDb from "./db"
 import { hash } from "./hash"
-import IndexValue from "@/models/IndexValue"
+import Business from "@/models/Business"
 
 
 export const defaultUser = async () => {
@@ -25,15 +25,15 @@ export const defaultUser = async () => {
 }
 
 
-export const defaultIndexValue = async () => {
+export const defaultBusinessValue = async () => {
     try {
         await connectDb()
 
-        
-        const count = await IndexValue.countDocuments()
+
+        const count = await Business.countDocuments()
         if (!count) {
-            await IndexValue.create({
-                welcome: "سلام من مهردادم 👋", description: "یه برنامه نویس پر شور با دوسال تجربه در زمینه فرانت اند با کتابخونه های ری اکت و نکست جی اس", picture: '/public/uploads/profile.jpg'
+            await Business.create({
+                name: "مهرداد", description: "یه برنامه نویس پر شور با دوسال تجربه در زمینه فرانت اند با کتابخونه های ری اکت و نکست جی اس", picture: '/public/uploads/profile.jpg'
             })
         }
 

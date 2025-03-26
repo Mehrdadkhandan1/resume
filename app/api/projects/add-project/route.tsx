@@ -40,7 +40,7 @@ export async function POST(request: Request) {
       description,
       picture: relativePath,
       createdBy,
-      deadlineProject, // مقدار به‌درستی ارسال شده است
+      deadlineProject, // مقدار به‌درستی ارسال شده است 
     });
 
     return NextResponse.json({
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
 
   } catch (error) {
     console.log(error);
-    return NextResponse.json(
+    return NextResponse.json( 
       { message: "خطا در ذخیره‌سازی فایل." },
       { status: 500 }
     );
